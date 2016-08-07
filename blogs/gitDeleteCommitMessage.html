@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>git 清除所有commit messages但保留文件的更改</title>
+		<link rel="stylesheet" href="../css/blogs.css">
+	</head>
+	<body>
+	  <h1>git 清除所有commit messages但保留文件的更改</h1>
+
+<p>我使用了一种笨方法</p>
+<ol>
+	<li>删除本地项目的.git目录</li>
+	<li><code>git init</code>初始化仓库</li>
+	<li><code>git add [file]</code>添加文件到git暂存区</li>
+	<li><code>git commit -m 'message'</code></li>
+	<li><code>git remote add origin [url]</code>添加原来的远程仓库地址</li>
+	<li><code>git push -u origin master:[new branch]</code>由于是新初始化的仓库，所以不能push到原来的分支了，需要新建一个分支</li>
+</ol>
+
+<p>这样远程仓库也有了一个清爽的commits的分支了</p>
+	</body>
+</html>

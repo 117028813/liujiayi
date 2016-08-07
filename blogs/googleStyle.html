@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Google HTML/CSS Style Guide</title>
+		<link rel="stylesheet" href="../css/blogs.css">
+	</head>
+	<body>
+	  <h1>Google HTML/CSS Style Guide</h1>
+
+
+<h2>一般样式规则</h2>
+
+<h3>协议</h3>
+引入外部CSS或者JS时不要再URL前面添加http或https这样的协议
+<pre>
+&lt;!-- Not recommended --&gt;
+&lt;script src="https://www.google.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;
+&lt;!-- Recommended --&gt;
+&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;
+</pre>
+但是实际情况下如果不加上协议的话是不能下载文件的
+<h2>一般格式化规则</h2>
+
+<h3>缩进</h3>
+用2个空格缩进，不要使用tab缩进或者tab和空格混用
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Fantastic
+  &lt;li&gt;Great
+&lt;/ul&gt;
+.example {
+  color: blue;
+}
+</pre>
+<h3>大小写</h3>
+所有代码都使用小写
+<pre>
+&lt;!-- Not recommended --&gt;
+&lt;A HREF="/"&gt;Home&lt;/A&gt;
+&lt;!-- Recommended --&gt;
+&lt;img src="google.png" alt="Google"&gt;
+/* Not recommended */
+color: #E5E5E5;
+/* Recommended */
+color: #e5e5e5;
+</pre>
+
+<h3>尾部的空白</h3>
+删除尾部的空白
+
+<h2>一般的元标签规则</h2>
+
+<h3>编码</h3>
+使用 UTF-8 (no BOM) 字符编码
+
+<h3>注释</h3>
+尽量使用注释
+
+<h3>活动项目</h3>
+对于未完成的代码使用TODO注释
+<pre>
+{# TODO(john.doe): revisit centering #}
+&lt;center>Test&lt;/center&gt;
+&lt;!-- TODO: remove optional tags --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<h2>HTML样式规则</h2>
+
+<h3>文档类型</h3>
+使用HTML5文档类型 `<!DOCTYPE html>`
+不要关闭自闭合标签 使用`<br>`代替`<br />`
+
+<h3>HTML有效性</h3>
+尽量使用有效的HTML标签
+可以使用<a href="https://validator.w3.org/nu/">W3C HTML validator</a>这样的工具验证HTML文件
+
+<h3>语义化</h3>
+尽量使用有语义化的HTML标签
+
+<h3>多媒体回退</h3>
+为不能显示的多媒体提供替代的内容
+<pre>
+&lt;!-- Not recommended --&gt;
+&lt;img src="spreadsheet.png"&gt;
+&lt;!-- Recommended --&gt;
+&lt;img src="spreadsheet.png" alt="Spreadsheet screenshot."&gt;
+</pre>
+
+<h3>结构、样式和行为分离</h3>
+
+<h3>实体参考</h3>
+尽量不要使用实体名称而使用字符来代替
+<pre>
+&lt;!-- Not recommended --&gt;
+The currency symbol for the Euro is &ldquo;&eur;&rdquo;.
+&lt;!-- Recommended --&gt;
+The currency symbol for the Euro is “€”.
+</pre>
+
+<h3>可有可无的标签</h3>
+<pre>
+&lt;!-- Not recommended --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Spending money, spending bytes&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Sic.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+&lt;!-- Recommended --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;Saving money, saving bytes&lt;/title&gt;
+&lt;p&gt;Qed.
+</pre>
+我认为这条不对
+
+<h3>type Attribute</h3>
+当引入CSS和JS时不要再link和script中使用type属性，因为text/css和test/javascript分别是默认的值
+
+<h2>HTML格式化规则</h2>
+
+<h3>一般格式</h3>
+为块级元素，列表和表格另起一行，对每个子元素进行缩进
+<pre>
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+  &lt;li&gt;Moe
+  &lt;li&gt;Larry
+  &lt;li&gt;Curly
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Income
+      &lt;th scope="col"&gt;Taxes
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$ 5.00
+      &lt;td&gt;$ 4.50
+&lt;/table&gt;
+</pre>
+
+<h3>HTML引号</h3>
+HTML属性值使用双引号
+<pre>
+&lt;!-- Not recommended --&gt;
+&lt;a class='maia-button maia-button-secondary'&gt;Sign in&lt;/a&gt;
+&lt;!-- Recommended --&gt;
+&lt;a class="maia-button maia-button-secondary"&gt;Sign in&lt;/a&gt;
+</pre>
+
+<h2>CSS样式规则</h2>
+
+<h3>CSS有效性</h3>
+使用工具验证CSS有效性<a href="https://jigsaw.w3.org/css-validator/">W3C CSS validator</a>
+
+<h3>ID和class命名</h3>
+使用有意义的或通用的id和class名字
+<pre>
+/* Not recommended: meaningless */
+#yee-1901 {}
+
+/* Not recommended: presentational */
+.button-green {}
+.clear {}
+/* Recommended: specific */
+#gallery {}
+#login {}
+.video {}
+
+/* Recommended: generic */
+.aux {}
+.alt {}
+</pre>
+
+<h3>ID和Class命名风格</h3>
+名称要尽量短并且有意义
+<pre>
+/* Not recommended */
+#navigation {}
+.atr {}
+/* Recommended */
+#nav {}
+.author {}
+</pre>
+
+<h3>Type Selectors</h3>
+避免在id和class选择器上加上element
+<pre>
+/* Not recommended */
+ul#example {}
+div.error {}
+/* Recommended */
+#example {}
+.error {}
+</pre>
+
+<h3>尽量使用简写属性</h3>
+<pre>
+/* Not recommended */
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;
+/* Recommended */
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;
+</pre>
+
+<h3>忽略0后面的单位</h3>
+<pre>
+margin: 0;
+padding: 0;
+</pre>
+
+<h3>忽略小数点前面的0</h3>
+<pre>
+font-size: .8em;
+</pre>
+
+<h3>尽量使用简写的16进制符号</h3>
+<pre>
+/* Not recommended */
+color: #eebbcc;
+/* Recommended */
+color: #ebc;
+</pre>
+
+<h3>前缀</h3>
+在大型项目中有时会引入外部文件，这时可以使用前缀
+<pre>
+.adw-help {} /* AdWords */
+#maia-note {} /* Maia */
+</pre>
+
+<h3>使用连字符分隔id和class的多个单词</h3>
+<pre>
+/* Not recommended: does not separate the words “demo” and “image” */
+.demoimage {}
+
+/* Not recommended: uses underscore instead of hyphen */
+.error_status {}
+/* Recommended */
+#video-id {}
+.ads-sample {}
+</pre>
+
+<h3>Hacks</h3>
+避免使用CSS Hack
+
+<h2>CSS格式规则</h2>
+
+<h3>声明顺序</h3>
+按照字母顺序排序，有前缀的属性不参与排序
+<pre>
+background: fuchsia;
+border: 1px solid;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color: black;
+text-align: center;
+text-indent: 2em;
+</pre>
+
+<h3>缩进每一个声明块</h3>
+<pre>
+@media screen, projection {
+
+  html {
+    background: #fff;
+    color: #444;
+  }
+
+}
+</pre>
+
+<h3>在每一个声明后面使用分号</h3>
+<pre>
+/* Not recommended */
+.test {
+  display: block;
+  height: 100px
+}
+/* Recommended */
+.test {
+  display: block;
+  height: 100px;
+}
+</pre>
+
+<h3>在每一个属性的冒号后面加一个空格</h3>
+<pre>
+/* Not recommended */
+h3 {
+  font-weight:bold;
+}
+/* Recommended */
+h3 {
+  font-weight: bold;
+}
+</pre>
+
+<h3>在选择器和左大括号之间使用一个空格</h3>
+<pre>
+/* Not recommended: missing space */
+#video{
+  margin-top: 1em;
+}
+
+/* Not recommended: unnecessary line break */
+#video
+{
+  margin-top: 1em;
+}
+/* Recommended */
+#video {
+  margin-top: 1em;
+}
+</pre>
+
+<h3>有多个选择器的时候每个选择器占用一行</h3>
+<pre>
+/* Not recommended */
+a:focus, a:active {
+  position: relative; top: 1px;
+}
+/* Recommended */
+h1,
+h3,
+h3 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+</pre>
+
+<h3>在两个规则之间使用一个空行分隔</h3>
+<pre>
+html {
+  background: #fff;
+}
+
+body {
+  margin: auto;
+  width: 50%;
+}
+</pre>
+
+<h3>对属性选择器和属性值使用单引号</h3>
+<pre>
+/* Not recommended */
+@import url("//www.google.com/css/maia.css");
+
+html {
+  font-family: "open sans", arial, sans-serif;
+}
+/* Recommended */
+@import url(//www.google.com/css/maia.css);
+
+html {
+  font-family: 'open sans', arial, sans-serif;
+}
+</pre>
+
+<h2>CSS元标签规则</h2>
+
+<h3>对样式进行分组，并添加注释</h3>
+<pre>
+/* Header */
+
+#adw-header {}
+
+/* Footer */
+
+#adw-footer {}
+
+/* Gallery */
+
+.adw-gallery {}
+</pre>
+
+<h2>离别赠言</h2>
+保证一致性
+
+如果你写代码，花几分钟看看你周围人的代码，确定它的风格。如果他们在运算符两边使用空格，那么你也使用。If their comments have little boxes of hash marks around them, make your comments have little boxes of hash marks around them too.
+
+关键点是使用共同的编码词汇以便人们可以关注于你说了什么而不是你怎么说。我们向全世界发布这个规则以便人们能够知道，但是你们内部的规则也很重要。如果你向文件中添加的代码和文件中已有的代码完全不同，当其他阅读这样的代码时会打乱他的节奏。避免这样做。
+
+Revision 2.23
+	</body>
+</html>

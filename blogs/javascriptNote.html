@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascriptNote</title>
+		<link rel="stylesheet" href="../css/blogs.css">
+	</head>
+	<body>
+	  <h2>JavaScript笔记</h2>
+    <p>javascript 没有块级作用域 不要使用"=="比较，始终坚持使用"==="比较</p>
+    数组是引用类型，实际内容保存在堆中，变量保存的是指向该数组的地址
+    <pre>
+var arr1 = [1, 2, 3];
+var arr2 = arr1;
+console.log(arr1 === arr2); // true
+    </pre>
+    因为arr1和arr2指向的都是内存中同一个位置，所以它们是相等的
+    <pre>
+var arr1 = [1, 2, 3];
+var arr2 = [1, 2, 3];
+console.log(arr1 === arr2); // false
+    </pre>
+    虽然arr1和arr2内容是相等的，但是由于它们分别指向2个位置，所以两个变量是不相等的
+    <pre>
+var arr1 = [1, 2, 3];
+var arr2 = arr1.slice(0);
+console.log(arr1 === arr2); // false
+    </pre>
+    这和上一个例子是一样的，所以如果想快速的复制一个数组可以使用这种方法<br><br>
+    <span class="time">2016-07-28 13:52:35</span>
+	</body>
+</html>
