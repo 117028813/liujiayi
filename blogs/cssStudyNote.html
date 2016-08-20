@@ -58,6 +58,22 @@ html > body table tr[id="totals"] td ul > li {color: red;} /*0,0,1,7*/
     <code>p {font-size: 14px; line-height: 1;}</code><br>
     <code>span {font-size: 10em;}</code><br>
     p的line-height是14px，span继承了p的line-height，所以span也有<code>line-height: 1;</code>，由于line-height根据元素本身的font-size，所以span的line-height为140px<br>
+
+    <h3>清除浮动的3种方法</h3>
+    <ol>
+      <li>父元素添加<code>overflow:hidden;</code>样式</li>
+      <li>父元素设置<code>display:inline-block;</code></li>
+      <li>
+        父元素添加clearfix类
+        <pre>
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+        </pre>
+      </li>
+    </ol>
     <span class="time">2016-07-28 17:01:29</span>
 	</body>
 </html>
