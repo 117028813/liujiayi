@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS date object</title>
+  <link rel="stylesheet" href="../css/blogs.css">
+</head>
+<body>
+<pre>
+// 返回当前时间
+var today = new Date();
+console.log(today);
+
+// 传入的数值是从1970年1月1日80:00:00开始计算经过的毫秒数
+// 返回经过这些毫秒之后的时间
+var timePointMilliseconds = new Date(1472090400000);
+console.log(timePointMilliseconds);
+
+// 传入时间的字符串格式
+// 返回这个时间的对象形式
+var timePointDateString = new Date("Thu Aug 25 2016 10:00:00 GMT+0800 (中国标准时间)");
+console.log(timePointDateString);
+
+// 按照年，月，日，时，分，秒的形式传入，注意月份是从0开始计数的
+// 按照传入的参数返回时间
+var timePoint = new Date(2016, 7, 25, 10, 0, 0);
+console.log(timePoint);
+
+// 将时间对象转化为距离1970年1月1日80:00:00的毫秒数
+// valueOf()和getTime()的功能完全一样
+console.log(today.getTime());
+console.log("valueOf(): "+today.valueOf());
+console.log(timePoint.getTime());
+console.log("valueOf(): "+timePoint.valueOf());
+
+// Date.UTC()传入的是UTC时间，返回该时间距离1970年1月1日80:00:00的毫秒数
+console.log(Date.UTC(2016, 7, 25, 10, 0, 0));
+console.log( (timePoint.getTime() - Date.UTC(2016, 7, 25, 10, 0, 0)) / 1000 / 60 / 60 );
+
+
+var dateTest = new Date(2016, 7, 25, 22, 0, 0);
+// 2个时间对象可以直接相减，结果是2个时间差的毫秒数
+// 和将对象转化成毫秒在相减的结果是一样的
+console.log(dateTest.getTime() - today.getTime());
+console.log(dateTest - today);
+var last = dateTest - today;
+var s = parseInt(last / 1000);
+var m = parseInt(s / 60);
+s %= 60;
+var h = parseInt(m / 60);
+m %= 60;
+console.log("距离设定的时间还有" + h + "小时" + m + "分" + s + "秒");
+
+// 中国和UTC时间相差8小时，所以中国的时区是8
+// 可以使用getTimezoneOffset()求出本地时间和UTC时间相差的分钟数
+console.log(new Date().getTimezoneOffset()); // -480
+console.log(today.getFullYear());
+console.log(today.getUTCFullYear());
+console.log(today.getMonth());
+console.log(today.getUTCMonth());
+console.log(today.getDate());
+console.log(today.getUTCDate());
+console.log(today.getDay());
+console.log(today.getUTCDay());
+console.log(today.getHours());
+console.log(today.getUTCHours());
+console.log(today.getMinutes());
+console.log(today.getUTCMinutes());
+console.log(today.getSeconds());
+console.log(today.getUTCSeconds());
+</pre>
+</body>
+</html>
