@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>weather map</title>
+  <link rel="stylesheet" href="http://cdn.bootcss.com/leaflet/1.0.0-rc.3/leaflet.css">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="common.css">
+  <style>
+    .container {
+      width: 638px;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    #map {
+      width: 500px;
+      height: 364px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .btn-group-vertical {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">主页</a></li>
+      <li><a href="website.html">常用网站</a></li>
+      <li class="active"><a href="weathermap.html">天气地图</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div id="map"></div>
+  <div class="btn-group-vertical">
+    <button type="button" class="btn btn-default">precipitation</button>
+    <button type="button" class="btn btn-default">precipitation_cls</button>
+    <button type="button" class="btn btn-default">rain</button>
+    <button type="button" class="btn btn-default">rain_cls</button>
+    <button type="button" class="btn btn-default">snow</button>
+    <button type="button" class="btn btn-default">clouds</button>
+    <button type="button" class="btn btn-default">clouds_cls</button>
+    <button type="button" class="btn btn-default">pressure</button>
+    <button type="button" class="btn btn-default">pressure_cntr</button>
+    <button type="button" class="btn btn-default">temp</button>
+    <button type="button" class="btn btn-default">wind</button>
+  </div>
+</div>
+
+
+
+<script src="http://cdn.bootcss.com/leaflet/1.0.0-rc.3/leaflet.js"></script>
+<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script>
+  var map = L.map("map", {
+    center: [41.79, 123.43],
+    zoom: 4
+  });
+  L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+
+  var buttons = $("button");
+  var layer;
+  for (let i = 0; i < buttons.length; i++) {
+    (function (i) {
+      $("button").eq(i).click(function () {
+        if (layer) {
+          map.removeLayer(layer);
+        }
+        let str = $(this).text();
+        var url = "http://{s}.maps.owm.io/weather/" + str + "/{z}/{x}/{y}.png?appid=b1b15e88fa797225412429c1c50c122a1";
+        layer = L.tileLayer(url, {
+          opacity: 0.6
+        }).addTo(map);
+      });
+    })(i);
+  }
+</script>
+</body>
+</html>
