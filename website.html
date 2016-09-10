@@ -2,8 +2,23 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>网址导航</title>
-		<link rel="stylesheet" href="common.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, userscalable=no">
+    <title>网址导航</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+      body {
+        padding-top: 70px;
+      }
+
+      @media (max-width: 767px) {
+        body {
+          padding-top: 0;
+        }
+        .navbar-fixed-top {
+          position: static;
+        }
+      }
+    </style>
 	</head>
 	<body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -26,12 +41,12 @@
 	    	<li>
 	    	  <span>搜狗</span>
 	    	  <a href="https://www.sogou.com/" target="_blank">https://www.sogou.com/</a>
-	    	  <span class="note">可以搜索知乎和微信</span>
+	    	  <span class="small">可以搜索知乎和微信</span>
 	    	</li>
 	    	<li>
 	    	  <span>谷歌</span>
 	    	  <a href="http://www.google.com/" target="_blank">http://www.google.com/</a>
-	    	  <span class="note">需翻墙</span>
+	    	  <span class="small">需翻墙</span>
 	    	</li>
 	    </ul>	    
 	  </div>
@@ -49,17 +64,17 @@
         <li>
           <span>chat</span>
           <a href="https://chat.sy-ruifeng.com/" target="_blank">https://chat.sy-ruifeng.com/</a>
-          <span class="note">公司使用的聊天软件</span>
+          <span class="small">公司使用的聊天软件</span>
         </li>
         <li>
           <span>redmine</span>
           <a href="https://redmine.sy-ruifeng.com/" target="_blank">https://redmine.sy-ruifeng.com/</a>
-          <span class="note">公司任务管理平台</span>
+          <span class="small">公司任务管理平台</span>
         </li>
         <li>
           <span>gitlab</span>
           <a href="http://gitlab.sy-ruifeng.com/" target="_blank">http://gitlab.sy-ruifeng.com/</a>
-          <span class="note">公司使用的类github项目托管平台</span>
+          <span class="small">公司使用的类github项目托管平台</span>
         </li>
         <li>
           <span>Aifro</span>
@@ -100,22 +115,22 @@
         <li>
           <span>FLEXBOX FROGGY</span>
           <a href="http://flexboxfroggy.com/#zh-cn" target="_blank">http://flexboxfroggy.com/#zh-cn</a>
-          <span class="note">学习flex布局的小游戏</span>
+          <span class="small">学习flex布局的小游戏</span>
         </li>
 	    	<li>
           <span>pro-git</span>
           <a href="https://git-scm.com/book/zh/v2" target="_blank">https://git-scm.com/book/zh/v2</a>
-          <span class="note">git教程书籍</span>
+          <span class="small">git教程书籍</span>
         </li>
         <li>
           <span>es6入门</span>
           <a href="http://es6.ruanyifeng.com/" target="_blank">http://es6.ruanyifeng.com/</a>
-          <span class="note">阮一峰写的ES6书</span>
+          <span class="small">阮一峰写的ES6书</span>
         </li>
         <li>
           <span>git command</span>
           <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a>
-          <span class="note">阮一峰总结的常用git命令</span>
+          <span class="small">阮一峰总结的常用git命令</span>
         </li>
         <li>
           <span>github</span>
@@ -170,7 +185,7 @@
 	      <li>
           <span>站长之家</span>
           <a href="http://www.chinaz.com/" target="_blank">http://www.chinaz.com/</a>
-          <span class="note">各类网站的排行</span>
+          <span class="small">各类网站的排行</span>
         </li>
         <li>
           <span>中关村在线</span>
@@ -199,7 +214,7 @@
         <li>
           <span>亚马逊</span>
           <a href="http://www.amazon.cn/" target="_blank">http://www.amazon.cn/</a>
-          <span class="note">买正版书可以在这里</span>
+          <span class="small">买正版书可以在这里</span>
         </li>
         <li>
           <span>沈阳市人力资源和社会保障局</span>
