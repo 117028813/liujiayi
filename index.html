@@ -17,5 +17,82 @@
   </div>
 </div>
 <h1>欢迎来到我的主页</h1>
+
+<select name="timezone" id="timezone">
+  <option value="0">UTC</option>
+  <option value="1">UTC+1</option>
+  <option value="2">UTC+2</option>
+  <option value="3">UTC+3</option>
+  <option value="4">UTC+4</option>
+  <option value="5">UTC+5</option>
+  <option value="6">UTC+6</option>
+  <option value="7">UTC+7</option>
+  <option value="8">UTC+8</option>
+  <option value="9">UTC+9</option>
+  <option value="10">UTC+10</option>
+  <option value="11">UTC+11</option>
+  <option value="12">UTC+12</option>
+  <option value="-11">UTC-11</option>
+  <option value="-10">UTC-10</option>
+  <option value="-9">UTC-9</option>
+  <option value="-8">UTC-8</option>
+  <option value="-7">UTC-7</option>
+  <option value="-6">UTC-6</option>
+  <option value="-5">UTC-5</option>
+  <option value="-4">UTC-4</option>
+  <option value="-3">UTC-3</option>
+  <option value="-2">UTC-2</option>
+  <option value="-1">UTC-1</option>
+</select>
+<span class="time"></span>
+
+<script>
+  // 传入时区，返回该时区的时间
+  function getTimezoneTime (timezone) {
+    var date = new Date();
+    var utcyear = date.getUTCFullYear();
+    var utcmonth = date.getUTCMonth();
+    var utcday = date.getUTCDate();
+    var utchour = date.getUTCHours();
+    var utcminute = date.getUTCMinutes();
+    var utcsecond = date.getUTCSeconds();
+    var utctime = new Date(utcyear, utcmonth, utcday, utchour, utcminute, utcsecond);
+    var utctimeMillisecond = utctime.getTime();
+    var timezoneMillisecond = utctimeMillisecond + timezone*60*60*1000;
+    var timezoneTime = new Date(timezoneMillisecond);
+    return timezoneTime;
+  }
+
+  function formatTime (time) {
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    var day = time.getDate();
+    var hour = time.getHours();
+    var minute = time.getMinutes();
+    var second = time.getSeconds();
+    hour = hour < 10 ? "0"+hour : hour;
+    minute = minute < 10 ? "0"+minute : minute;
+    second = second < 10 ? "0"+second : second;
+    var str = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    return str;
+  }
+
+  var timezone = document.getElementById("timezone");
+  var time = document.getElementsByClassName("time")[0];
+  setInterval(function () {
+    var objtime = getTimezoneTime(timezone.value);
+    time.innerHTML = formatTime(objtime);
+  }, 1000);
+
+  timezone.onchange = function () {
+    setInterval(function () {
+      var objtime = getTimezoneTime(timezone.value);
+      time.innerHTML = formatTime(objtime);
+    }, 1000);
+  }
+
+
+
+</script>
 </body>
 </html>
