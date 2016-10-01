@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<title>刘家轶的主页</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    .time {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <div class="navbar navbar-default">
@@ -46,6 +53,7 @@
 </select>
 <span class="time"></span>
 
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 <script>
   // 传入时区，返回该时区的时间
   function getTimezoneTime (timezone) {
@@ -91,7 +99,29 @@
     }, 1000);
   }
 
+  function dragElement ($ele) {
+    $ele.mousedown(function (e) {
+      var offset = $(this).offset();
+      var x = e.pageX;
+      var y = e.pageY;
+      
+      $(this).on('mousemove', function (e) {
+        var l = offset.left + (e.pageX - x);
+        var t = offset.top + (e.pageY - y);
+        $(this).css({
+          'left': l + 'px',
+          'top': t + 'px',
+          'position': 'absolute'
+        });
+      });
+    });
 
+    $(document).mouseup(function () {
+      $ele.off('mousemove');
+    });
+  }
+
+  dragElement($('.time'));
 
 </script>
 </body>
