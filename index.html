@@ -162,7 +162,7 @@
   }
 
   ajax({
-    url: 'http://api.openweathermap.org/data/2.5/weather?units=metric&lat=41.81&lon=123.43&APPID=fa714546c7d13260b94370286a5821dc',
+    url: 'https://api.openweathermap.org/data/2.5/weather?units=metric&lat=41.81&lon=123.43&APPID=fa714546c7d13260b94370286a5821dc',
     success: function (response) {
       response = JSON.parse(response);
       
@@ -173,7 +173,7 @@
       var temp = iconTemp.getElementsByClassName('temp')[0];
 
       cityCountry.innerHTML = response.name + ', ' + response.sys.country;
-      icon.src = 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
+      icon.src = 'https://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
       icon.title = icon.alt = response.weather[0].description;
       temp.innerHTML = response.main.temp + '&#176;C';
     }
